@@ -10,7 +10,7 @@
 [![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
 [![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
-<img src="./assets/convites/convite-noivado-cha-de-bencao.svg" alt="Convite do Noivado e Chá de Bênção de Tânia Maria e Eliclécio Batista" width="330" />
+
 
 </div>
 
