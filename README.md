@@ -1,56 +1,52 @@
 <div align="center">
 
-💍 Casamento — Tânia Maria & Eliclécio Batista
+# 💍 Noivado e Chá de Bênção — Tânia Maria & Eliclécio Batista
 
-Um convite digital elegante, interativo e conectado aos convidados
+### Convite digital responsivo com confirmação de presença, lista de presentes e integração em tempo real
 
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+[![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
-
-<img src="./assets/convites/convite-modelo-2.png" alt="Convite de casamento de Tânia Maria e Eliclécio Batista" width="330" />
+<img src="./assets/convites/convite-noivado-cha-de-bencao.svg" alt="Convite do Noivado e Chá de Bênção de Tânia Maria e Eliclécio Batista" width="330" />
 
 </div>
 
-📖 Sobre o projeto
+---
 
-Este projeto é um site de casamento responsivo desenvolvido para Tânia Maria e Eliclécio Batista. A aplicação transforma o convite tradicional em uma experiência digital completa, permitindo que os convidados consultem as informações da cerimônia, confirmem presença, acompanhem a contagem regressiva e escolham presentes.
+## 📖 Sobre o projeto
 
-O sistema utiliza o Supabase para persistência global e controle concorrente da lista de presentes, garantindo que um mesmo item não seja reservado por duas pessoas. Também possui integração opcional com a WhatsApp Cloud API, responsável por notificar a noiva quando um presente for escolhido.
+Este projeto é um **site responsivo para o Noivado e Chá de Bênção de Tânia Maria e Eliclécio Batista**. A aplicação transforma o convite tradicional em uma experiência digital interativa, permitindo que os convidados consultem os detalhes da celebração, confirmem presença, acompanhem a contagem regressiva e reservem presentes.
 
-✨ Principais funcionalidades
+A persistência global é fornecida pelo **Supabase**, com funções PostgreSQL que evitam reservas duplicadas. A solução também possui uma **Supabase Edge Function** opcional para notificar Tânia pela WhatsApp Cloud API quando um convidado escolher um presente.
 
-Identificação do convidado por nome em um pop-up de boas-vindas.
+## ✨ Funcionalidades
 
-Reconhecimento de convidados que já confirmaram presença.
+- Pop-up de identificação do convidado por nome.
+- Reconhecimento de convidados que já confirmaram presença.
+- Mensagem personalizada para confirmação do Noivado e Chá de Bênção.
+- Confirmação de presença imediata ou em outro momento.
+- Data, horário, local, versículo e contagem regressiva.
+- Mini player fixo do YouTube, acompanhando o rolamento da página.
+- Reprodução automática sem som e tentativa de ativação do áudio após a primeira interação.
+- Lista de presentes com imagem, descrição, valor e link de compra.
+- Confirmação antes da reserva do presente.
+- Bloqueio global e atômico para impedir que duas pessoas reservem o mesmo item.
+- Atualização periódica da disponibilidade dos presentes.
+- Notificação automática pelo WhatsApp quando a Cloud API estiver configurada.
+- Fallback manual com mensagem pronta quando a integração automática não estiver disponível.
+- Layout adaptado para celulares, tablets e computadores.
 
-Confirmação de presença imediata ou em outro momento.
+## 🔄 Jornada do convidado
 
-Exibição dos nomes do casal, data, horário, local e versículo.
-
-Contagem regressiva em tempo real para a cerimônia.
-
-Mini player fixo do YouTube com a playlist do casamento.
-
-Lista de presentes com foto, descrição, valor e link de compra.
-
-Confirmação antes da reserva de um presente.
-
-Bloqueio global e atômico dos presentes escolhidos.
-
-Atualização periódica da disponibilidade dos itens.
-
-Notificação automática para o WhatsApp da noiva.
-
-Alternativa manual pelo WhatsApp quando a API não estiver configurada.
-
-Layout adaptado para celular, tablet e computador.
-
-🔄 Jornada do convidado
-
+```mermaid
 flowchart TD
     A[Acessa o site] --> B[Informa o nome]
-    B --> C{Já confirmou presença?}
-    C -- Sim --> D[Mensagem de boas-vindas]
-    C -- Não --> E[Convite para confirmar presença]
+    B --> C{Presença já confirmada?}
+    C -- Sim --> D[Recebe boas-vindas]
+    C -- Não --> E[Recebe o convite para confirmar]
     E --> F[Confirma agora]
     E --> G[Confirma depois]
     D --> H[Navega pelo site]
@@ -58,74 +54,32 @@ flowchart TD
     G --> H
     H --> I[Escolhe um presente]
     I --> J{Presente disponível?}
-    J -- Não --> K[Atualiza a lista]
-    J -- Sim --> L[Reserva no Supabase]
+    J -- Não --> K[Lista é atualizada]
+    J -- Sim --> L[Reserva atômica no Supabase]
     L --> M[Exibe o link de compra]
-    L --> N[Notifica a noiva]
+    L --> N[Notifica Tânia]
+```
 
-🧰 Tecnologias utilizadas
+## 🧰 Tecnologias
 
-Camada
+| Camada | Tecnologia | Responsabilidade |
+|---|---|---|
+| Interface | HTML5 | Estrutura semântica, conteúdo e modais |
+| Estilização | CSS3 | Identidade floral, responsividade e animações |
+| Aplicação | JavaScript ES Modules | RSVP, presentes, player e integrações |
+| Banco de dados | PostgreSQL / Supabase | Convidados, confirmações e reservas |
+| Backend serverless | Supabase Edge Functions | Notificação segura pelo WhatsApp |
+| Música | YouTube IFrame Player API | Reprodução da playlist da celebração |
+| Mensageria | WhatsApp Cloud API | Notificação da escolha do presente |
+| Hospedagem | Vercel | Deploy do frontend estático |
 
-Tecnologia
+## 🏗️ Arquitetura
 
-Responsabilidade
-
-Interface
-
-HTML5
-
-Estrutura semântica das páginas e modais
-
-Estilização
-
-CSS3
-
-Layout floral, responsividade e animações
-
-Aplicação
-
-JavaScript ES Modules
-
-Regras de interação, RSVP, presentes e player
-
-Banco de dados
-
-PostgreSQL / Supabase
-
-Convidados, confirmações e reservas
-
-Backend serverless
-
-Supabase Edge Functions
-
-Envio seguro de notificações
-
-Música
-
-YouTube IFrame Player API
-
-Reprodução da playlist do casamento
-
-Mensageria
-
-WhatsApp Cloud API
-
-Notificação automática da escolha do presente
-
-Hospedagem
-
-Vercel
-
-Publicação do frontend estático
-
-🏗️ Arquitetura
-
+```text
 Navegador do convidado
         │
         ├── HTML + CSS + JavaScript
-        │        │
-        │        ├── YouTube Player API
+        │        ├── YouTube IFrame Player API
         │        └── Supabase JavaScript Client
         │
         ▼
@@ -139,60 +93,62 @@ Supabase
                     │
                     ▼
             WhatsApp Cloud API
+```
 
-A reserva do presente é processada diretamente no PostgreSQL por uma função RPC. A atualização ocorre somente quando o item ainda não possui um responsável, evitando duplicidade mesmo quando duas pessoas tentam reservá-lo simultaneamente.
+A reserva é concluída por uma função no PostgreSQL que atualiza o item somente quando ele ainda não possui um responsável. Isso garante consistência mesmo quando duas pessoas tentam reservar o mesmo presente quase simultaneamente.
 
-📁 Estrutura do projeto
+## 📁 Estrutura
 
-site-casamento-tania-elicelio/
+```text
+site-noivado-cha-de-bencao-tania-elicelio/
 ├── assets/
-│   ├── convites/                 # Artes utilizadas no site
-│   ├── gifts/                    # Imagens dos presentes
-│   └── music/                    # Orientações sobre mídia local
+│   ├── convites/
+│   │   └── convite-noivado-cha-de-bencao.svg
+│   ├── gifts/
+│   └── music/
 ├── supabase/
 │   ├── functions/
 │   │   └── notify-bride/
-│   │       └── index.ts          # Notificação pelo WhatsApp
-│   ├── admin-queries.sql         # Consultas administrativas
-│   └── schema.sql                # Tabelas, políticas, funções e dados iniciais
-├── api.js                        # Camadas Local e Supabase
-├── app.js                        # Regras da interface
-├── config.js                     # Configurações personalizáveis
-├── index.html                    # Página principal
-├── styles.css                    # Estilos e responsividade
-├── vercel.json                   # Configuração de publicação
+│   │       └── index.ts
+│   ├── admin-queries.sql
+│   └── schema.sql
+├── api.js
+├── app.js
+├── config.js
+├── index.html
+├── styles.css
+├── vercel.json
 ├── .gitignore
 └── README.md
+```
 
-🚀 Executando localmente
+## 🚀 Executando localmente
 
-O projeto é estático e não exige instalação de dependências nem processo de build.
+O projeto é estático e não exige instalação de dependências.
 
-Opção 1 — Live Server
+### Live Server
 
-Abra a pasta no VS Code.
+1. Abra a pasta no VS Code.
+2. Instale a extensão **Live Server**.
+3. Clique com o botão direito em `index.html`.
+4. Selecione **Open with Live Server**.
 
-Instale a extensão Live Server.
+### Python
 
-Clique com o botão direito em index.html.
-
-Selecione Open with Live Server.
-
-Opção 2 — Python
-
+```bash
 python -m http.server 5500
+```
 
-Depois, acesse:
+Acesse `http://localhost:5500`.
 
-http://localhost:5500
+> Não abra o HTML diretamente pelo explorador, pois os módulos ES podem ser bloqueados pelo navegador.
 
-Abrir o arquivo HTML diretamente pelo explorador pode impedir o carregamento dos módulos JavaScript. Utilize sempre um servidor local.
+## ⚙️ Configuração do evento
 
-⚙️ Configuração do casamento
+Edite `config.js`:
 
-Edite o arquivo config.js:
-
-export const WEDDING_CONFIG = {
+```js
+export const EVENT_CONFIG = {
   bride: {
     firstName: "Tânia",
     fullName: "Tânia Maria",
@@ -202,163 +158,131 @@ export const WEDDING_CONFIG = {
     fullName: "Eliclécio Batista",
   },
   monogram: "T & E",
+  event: {
+    name: "Noivado e Chá de Bênção",
+    invitationText: "Convidamos você para celebrar o nosso Noivado e Chá de Bênção",
+  },
   dateISO: "2026-09-15T20:00:00-03:00",
   dateLabel: "15 de setembro de 2026",
   timeLabel: "20:00 horas",
   venue: {
     name: "Nome do espaço da cerimônia",
-    address: "Endereço completo do casamento",
+    address: "Endereço completo da celebração",
     mapsUrl: "https://maps.google.com/",
   },
 };
+```
 
-Também é possível alterar o versículo, a playlist do YouTube, o intervalo de atualização dos presentes e o número utilizado no fallback manual do WhatsApp.
+## 🗄️ Supabase
 
-🗄️ Configuração do Supabase
+Sem Supabase, o site funciona em modo de demonstração e salva os dados somente no navegador. Para habilitar a persistência global:
 
-Sem o Supabase, o site funciona em modo de demonstração e armazena as informações somente no navegador atual. Para habilitar a persistência global:
+1. Crie um projeto no Supabase.
+2. Abra **SQL Editor**.
+3. Execute `supabase/schema.sql`.
+4. Copie a **Project URL** e a chave pública `publishable`.
+5. Preencha:
 
-Crie um projeto no Supabase.
-
-Abra SQL Editor.
-
-Execute todo o conteúdo de supabase/schema.sql.
-
-Acesse Project Settings → API.
-
-Copie a URL do projeto e a chave pública publishable.
-
-Preencha o config.js:
-
+```js
 supabase: {
   url: "https://SEU-PROJETO.supabase.co",
   publishableKey: "SUA_CHAVE_PUBLICA",
 },
+```
 
-Segurança das chaves
+A chave pública pode ficar no frontend. Nunca publique `service_role`, `sb_secret_...`, senha do banco ou token da Meta.
 
-A chave pública pode ser usada no navegador porque o banco está protegido por políticas e funções específicas. Nunca coloque no frontend:
+### Compatibilidade
 
-service_role
-sb_secret_...
-senha do banco
-token da Meta
+As funções RPC do SQL mantêm alguns nomes internos originalmente usados durante o desenvolvimento, como `enter_wedding`. Eles foram preservados para não quebrar bancos Supabase já configurados. Todo o conteúdo visível do site representa corretamente o **Noivado e Chá de Bênção**.
 
-🎁 Cadastro de presentes
+## 🎁 Presentes
 
-Os presentes iniciais são cadastrados pelo arquivo supabase/schema.sql. Cada item possui:
+Os itens iniciais ficam em `supabase/schema.sql`. Cada registro possui:
 
-Campo
+| Campo | Descrição |
+|---|---|
+| `name` | Nome do presente |
+| `description` | Texto exibido no card |
+| `price_cents` | Valor em centavos |
+| `image_url` | Caminho ou URL da imagem |
+| `purchase_url` | Link da loja |
+| `active` | Controla a exibição |
 
-Descrição
+Exemplo: `49990` representa `R$ 499,90`.
 
-Exemplo
+## 🔒 Proteção contra reserva duplicada
 
-name
-
-Nome do presente
-
-Air Fryer 5L
-
-description
-
-Descrição exibida no card
-
-Para deixar as refeições mais práticas.
-
-price_cents
-
-Valor em centavos
-
-49990
-
-image_url
-
-Caminho ou URL pública da imagem
-
-./assets/gifts/air-fryer.svg
-
-purchase_url
-
-Link utilizado após a reserva
-
-Link da loja
-
-active
-
-Controla a exibição no site
-
-true
-
-Exemplo de valor:
-
-49990 = R$ 499,90
-
-Os itens também podem ser administrados pelo Table Editor do Supabase.
-
-🔒 Bloqueio contra escolha duplicada
-
-O sistema não confia apenas no estado exibido na tela. A função SQL responsável pela reserva atualiza o presente somente quando chosen_by ainda está vazio.
-
+```sql
 update public.gifts
 set chosen_by = p_guest_id,
     chosen_at = now()
 where id = p_gift_id
   and chosen_by is null;
+```
 
-Dessa forma, caso duas pessoas cliquem praticamente ao mesmo tempo, somente a primeira reserva é concluída. A segunda recebe a informação de que o presente já foi escolhido.
+Somente a primeira tentativa consegue alterar o item. As demais recebem a informação de que o presente já foi escolhido.
 
-📲 Integração com o WhatsApp
+## 📲 WhatsApp
 
-A integração automática é opcional e utiliza uma Supabase Edge Function. O token da Meta permanece no servidor e nunca é enviado ao navegador.
+A integração automática utiliza a Edge Function `notify-bride`. O token da Meta fica no servidor e nunca é enviado ao navegador.
 
-Modelo de mensagem
+### Modelo de mensagem
 
-Crie no WhatsApp Manager um modelo chamado:
+Crie no WhatsApp Manager:
 
-presente_casamento_escolhido
+```text
+presente_noivado_escolhido
+```
 
-Corpo sugerido:
+Corpo:
 
+```text
 {{1}} escolheu te dar o presente {{2}}.
+```
 
-Exemplo enviado:
+Exemplo:
 
+```text
 Carlos escolheu te dar o presente Jogo de Cama.
+```
 
-Segredos da Edge Function
+### Segredos
 
+```bash
 supabase secrets set WHATSAPP_TOKEN="SEU_TOKEN"
 supabase secrets set WHATSAPP_PHONE_NUMBER_ID="SEU_PHONE_NUMBER_ID"
 supabase secrets set BRIDE_WHATSAPP_NUMBER="5582999999999"
-supabase secrets set WHATSAPP_TEMPLATE_NAME="presente_casamento_escolhido"
+supabase secrets set WHATSAPP_TEMPLATE_NAME="presente_noivado_escolhido"
 supabase secrets set WHATSAPP_TEMPLATE_LANGUAGE="pt_BR"
 supabase secrets set WHATSAPP_GRAPH_API_VERSION="VERSAO_ATIVA"
+```
 
-Publique a função:
+Deploy:
 
+```bash
 supabase functions deploy notify-bride
+```
 
-Caso a integração automática não esteja disponível, o site exibe o botão Avisar no WhatsApp, abrindo uma mensagem previamente preenchida para envio manual.
+Sem a Cloud API, preencha `brideWhatsappNumber` no `config.js`. O site exibirá o botão **Avisar no WhatsApp**, abrindo a mensagem pronta para envio manual.
 
-🎵 Playlist do casamento
+## 🎵 Playlist
 
-O player é fixado no canto inferior direito e acompanha o rolamento da página. A playlist é definida no config.js:
-
+```js
 music: {
   provider: "youtube",
   playlistId: "PLCggmkGw79n8V3eZuRpuzETFljnj5-qNw",
-  title: "Playlist de músicas do casamento",
+  title: "Playlist do Noivado e Chá de Bênção",
 },
+```
 
-Os navegadores podem impedir reprodução automática com som antes da primeira interação. Por isso, o player inicia conforme as permissões disponíveis e tenta liberar o áudio após a interação do convidado com o site.
+O player fica fixo no canto inferior direito e acompanha o rolamento. No celular, ele usa 168 × 95 px para permanecer como mini player, sem ocupar toda a largura da tela. Por regras dos navegadores, ele inicia sem som e tenta ativar o áudio após a primeira interação do convidado.
 
-🧪 Consultas administrativas
+## 🧪 Reset dos testes
 
-O arquivo supabase/admin-queries.sql contém comandos para consultar convidados, verificar presentes escolhidos e liberar reservas durante testes.
+No SQL Editor:
 
-Liberar todos os presentes e remover convidados de teste
-
+```sql
 begin;
 
 update public.gifts
@@ -370,89 +294,70 @@ set
 delete from public.guests;
 
 commit;
+```
 
-Depois, limpe o convidado armazenado no navegador:
+No navegador:
 
-localStorage.removeItem("wedding_guest");
+```js
+localStorage.removeItem("event_guest");
+localStorage.removeItem("wedding_guest"); // remove dados de versões anteriores
 location.reload();
+```
 
-☁️ Publicação na Vercel
+## ☁️ Deploy na Vercel
 
-Envie o projeto para um repositório no GitHub.
+1. Envie o projeto ao GitHub.
+2. Na Vercel, selecione **Add New → Project**.
+3. Importe o repositório.
+4. Use **Framework Preset: Other**.
+5. Deixe os comandos de instalação e build vazios.
+6. Use `.` como diretório público quando o painel solicitar.
+7. Clique em **Deploy**.
 
-Entre na Vercel e selecione Add New → Project.
+Cada `git push` na branch principal inicia um novo deploy.
 
-Importe o repositório.
+## 📤 GitHub
 
-Em Framework Preset, selecione Other.
-
-Deixe Build Command vazio.
-
-Use . em Output Directory.
-
-Clique em Deploy.
-
-Depois da primeira publicação, cada git push na branch principal inicia uma nova implantação automaticamente.
-
-📤 Publicação no GitHub
-
+```bash
 git init
 git add .
-git commit -m "feat: cria site do casamento de Tânia e Eliclécio"
+git commit -m "feat: cria site do noivado e chá de bênção"
 git branch -M main
-git remote add origin https://github.com/SEU-USUARIO/Site-Casamento-Tania-Elicelio.git
+git remote add origin https://github.com/SEU-USUARIO/Site-Noivado-Cha-de-Bencao-Tania-Elicelio.git
 git push -u origin main
+```
 
-Atualizações futuras:
+## 🛡️ Segurança
 
-git add .
-git commit -m "feat: atualiza site do casamento"
-git push
+- Não publique tokens, senhas ou chaves administrativas.
+- Use apenas a chave pública do Supabase no `config.js`.
+- Mantenha credenciais da Meta nos Secrets da Edge Function.
+- Revise endereço, telefone e dados pessoais antes de tornar o repositório público.
+- Considere códigos individuais quando existirem convidados com nomes iguais.
 
-🛡️ Boas práticas de segurança
+## 🧭 Melhorias futuras
 
-Não exponha tokens, senhas ou chaves administrativas no GitHub.
+- Painel administrativo autenticado.
+- Confirmação de acompanhantes.
+- Exportação dos convidados para CSV.
+- Galeria de fotos e livro de mensagens.
+- QR Code individual para cada convite.
+- Relatórios de presença e presentes escolhidos.
 
-Mantenha as credenciais da Meta somente nos segredos da Edge Function.
+## 👨‍💻 Autor
 
-Use apenas a chave pública do Supabase no config.js.
+Desenvolvido por **Carlos Lima**.
 
-Considere utilizar um código individual para cada convite quando houver convidados com nomes iguais.
+- GitHub: [developercarloslima](https://github.com/developercarloslima)
 
-Revise os dados pessoais antes de tornar o repositório público.
-
-Mantenha o número da noiva fora do frontend caso não utilize o fallback manual.
-
-🧭 Melhorias futuras
-
-Painel administrativo protegido por autenticação.
-
-Exportação da lista de convidados para CSV.
-
-Confirmação de acompanhantes e quantidade de pessoas.
-
-Filtro e busca na lista de presentes.
-
-Galeria de fotos do casal.
-
-Livro de mensagens para os convidados.
-
-QR Code individual para acesso ao convite.
-
-Relatórios de presença e presentes escolhidos.
-
-👨‍💻 Autor
-
-Desenvolvido por Carlos Lima.
-
-GitHub: developercarloslima
-
-Direitos autorais
+## Direitos autorais
 
 © 2026 Carlos Lima. Todos os direitos reservados.
 
 Este repositório está disponível para fins de demonstração e portfólio. A cópia, modificação, distribuição ou utilização comercial do código não é permitida sem autorização prévia.
 
+---
+
 <div align="center">
-  <strong>Feito com carinho para celebrar a união de Tânia Maria e Eliclécio Batista.</strong>
+  <strong>Feito com carinho para celebrar o Noivado e Chá de Bênção de Tânia Maria e Eliclécio Batista.</strong>
 </div>

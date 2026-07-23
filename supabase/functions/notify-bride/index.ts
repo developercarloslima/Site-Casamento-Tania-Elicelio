@@ -36,7 +36,7 @@ Deno.serve(async (request) => {
     const phoneNumberId = Deno.env.get("WHATSAPP_PHONE_NUMBER_ID");
     const brideNumber = Deno.env.get("BRIDE_WHATSAPP_NUMBER")?.replace(/\D/g, "");
     const templateName =
-      Deno.env.get("WHATSAPP_TEMPLATE_NAME") || "presente_casamento_escolhido";
+      Deno.env.get("WHATSAPP_TEMPLATE_NAME") || "presente_noivado_escolhido";
     const templateLanguage =
       Deno.env.get("WHATSAPP_TEMPLATE_LANGUAGE") || "pt_BR";
     const graphVersion = Deno.env.get("WHATSAPP_GRAPH_API_VERSION") || "v24.0";

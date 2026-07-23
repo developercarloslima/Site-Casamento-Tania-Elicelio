@@ -1,4 +1,4 @@
--- Consultas úteis para os noivos no SQL Editor do Supabase.
+-- Consultas úteis para os casal no SQL Editor do Supabase.
 
 -- Convidados que confirmaram presença:
 select full_name, confirmed_at

@@ -1,5 +1,5 @@
-import { WEDDING_CONFIG } from "./config.js";
-import { weddingApi } from "./api.js";
+import { EVENT_CONFIG } from "./config.js?v=20260723-mini-player-v2";
+import { eventApi } from "./api.js?v=20260723-mini-player-v2";
 
 const state = {
   guest: null,
@@ -32,38 +32,41 @@ let youtubePlayer = null;
 let youtubePlayerReady = false;
 let soundRequested = false;
 
-function fillWeddingContent() {
-  $$('[data-monogram]').forEach((el) => (el.textContent = WEDDING_CONFIG.monogram));
-  $$('[data-bride-full]').forEach((el) => (el.textContent = WEDDING_CONFIG.bride.fullName));
-  $$('[data-groom-full]').forEach((el) => (el.textContent = WEDDING_CONFIG.groom.fullName));
-  $$('[data-bride-first]').forEach((el) => (el.textContent = WEDDING_CONFIG.bride.firstName));
-  $$('[data-groom-first]').forEach((el) => (el.textContent = WEDDING_CONFIG.groom.firstName));
-  $$('[data-date-label]').forEach((el) => (el.textContent = WEDDING_CONFIG.dateLabel));
-  $$('[data-time-label]').forEach((el) => (el.textContent = WEDDING_CONFIG.timeLabel));
-  $$('[data-venue-name]').forEach((el) => (el.textContent = WEDDING_CONFIG.venue.name));
-  $$('[data-venue-address]').forEach((el) => (el.textContent = WEDDING_CONFIG.venue.address));
-  $$('[data-maps-link]').forEach((el) => (el.href = WEDDING_CONFIG.venue.mapsUrl));
-  $$('[data-verse-text]').forEach((el) => (el.textContent = `“${WEDDING_CONFIG.verse.text}”`));
-  $$('[data-verse-reference]').forEach((el) => (el.textContent = WEDDING_CONFIG.verse.reference));
+function fillEventContent() {
+  $$('[data-monogram]').forEach((el) => (el.textContent = EVENT_CONFIG.monogram));
+  $$('[data-event-invitation]').forEach((el) =>
+    (el.textContent = EVENT_CONFIG.event.invitationText),
+  );
+  $$('[data-bride-full]').forEach((el) => (el.textContent = EVENT_CONFIG.bride.fullName));
+  $$('[data-groom-full]').forEach((el) => (el.textContent = EVENT_CONFIG.groom.fullName));
+  $$('[data-bride-first]').forEach((el) => (el.textContent = EVENT_CONFIG.bride.firstName));
+  $$('[data-groom-first]').forEach((el) => (el.textContent = EVENT_CONFIG.groom.firstName));
+  $$('[data-date-label]').forEach((el) => (el.textContent = EVENT_CONFIG.dateLabel));
+  $$('[data-time-label]').forEach((el) => (el.textContent = EVENT_CONFIG.timeLabel));
+  $$('[data-venue-name]').forEach((el) => (el.textContent = EVENT_CONFIG.venue.name));
+  $$('[data-venue-address]').forEach((el) => (el.textContent = EVENT_CONFIG.venue.address));
+  $$('[data-maps-link]').forEach((el) => (el.href = EVENT_CONFIG.venue.mapsUrl));
+  $$('[data-verse-text]').forEach((el) => (el.textContent = `“${EVENT_CONFIG.verse.text}”`));
+  $$('[data-verse-reference]').forEach((el) => (el.textContent = EVENT_CONFIG.verse.reference));
 
 }
 
 
 function getYouTubePlaylistId() {
   return (
-    WEDDING_CONFIG.music?.playlistId?.trim() ||
+    EVENT_CONFIG.music?.playlistId?.trim() ||
     youtubePlayerElement?.dataset.playlistId?.trim() ||
     ""
   );
 }
 
 function removeMusicActivationListeners() {
-  document.removeEventListener("pointerdown", activateWeddingMusic, true);
-  document.removeEventListener("keydown", activateWeddingMusic, true);
-  document.removeEventListener("touchstart", activateWeddingMusic, true);
+  document.removeEventListener("pointerdown", activateEventMusic, true);
+  document.removeEventListener("keydown", activateEventMusic, true);
+  document.removeEventListener("touchstart", activateEventMusic, true);
 }
 
-function activateWeddingMusic() {
+function activateEventMusic() {
   soundRequested = true;
 
   if (!youtubePlayerReady || !youtubePlayer) return;
@@ -83,13 +86,13 @@ function createYouTubePlayer() {
   if (!youtubePlayerElement || !playlistId || youtubePlayer || !window.YT?.Player) return;
 
   youtubePlayer = new window.YT.Player("youtube-player", {
-    width: "340",
-    height: "200",
+    width: "100%",
+    height: "100%",
     host: "https://www.youtube-nocookie.com",
     playerVars: {
       listType: "playlist",
       list: playlistId,
-      autoplay: 1,
+      autoplay: 0,
       loop: 1,
       controls: 1,
       playsinline: 1,
@@ -99,7 +102,7 @@ function createYouTubePlayer() {
       onReady(event) {
         youtubePlayerReady = true;
         const iframe = event.target.getIframe();
-        iframe.title = WEDDING_CONFIG.music?.title || "Playlist de músicas do casamento";
+        iframe.title = EVENT_CONFIG.music?.title || "Playlist do Noivado e Chá de Bênção";
         iframe.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture; fullscreen");
 
         // Autoplay com som costuma ser bloqueado pelos navegadores. Por isso,
@@ -107,7 +110,7 @@ function createYouTubePlayer() {
         event.target.mute();
         event.target.playVideo();
 
-        if (soundRequested) activateWeddingMusic();
+        if (soundRequested) activateEventMusic();
       },
       onError(event) {
         console.error("Não foi possível carregar a playlist do YouTube.", event.data);
@@ -119,9 +122,9 @@ function createYouTubePlayer() {
 function loadYouTubePlayer() {
   if (!youtubePlayerElement || !getYouTubePlaylistId()) return;
 
-  document.addEventListener("pointerdown", activateWeddingMusic, true);
-  document.addEventListener("touchstart", activateWeddingMusic, true);
-  document.addEventListener("keydown", activateWeddingMusic, true);
+  document.addEventListener("pointerdown", activateEventMusic, true);
+  document.addEventListener("touchstart", activateEventMusic, true);
+  document.addEventListener("keydown", activateEventMusic, true);
 
   if (window.YT?.Player) {
     createYouTubePlayer();
@@ -207,14 +210,14 @@ function showGuestResponse() {
   }
 
   guestGreeting.textContent = `${guest.firstName}, que bom ter você aqui!`;
-  guestMessage.textContent = `${guest.firstName}, posso confirmar sua presença para juntos celebrarmos a união de ${WEDDING_CONFIG.bride.firstName} e ${WEDDING_CONFIG.groom.firstName}?`;
+  guestMessage.textContent = `${guest.firstName}, posso confirmar sua presença para juntos celebrarmos o Noivado e o Chá de Bênção de ${EVENT_CONFIG.bride.firstName} e ${EVENT_CONFIG.groom.firstName}?`;
 
   const confirmButton = createActionButton("Confirmar presença", "", async () => {
     setButtonLoading(confirmButton, true, "Confirmando…");
     try {
-      await weddingApi.confirmPresence(guest.id);
+      await eventApi.confirmPresence(guest.id);
       guest.confirmed = true;
-      localStorage.setItem("wedding_guest", JSON.stringify(guest));
+      localStorage.setItem("event_guest", JSON.stringify(guest));
       showToast("Presença confirmada com sucesso!");
       showGuestResponse();
     } catch (error) {
@@ -237,12 +240,12 @@ async function handleGuestEntry(event) {
   const fullName = guestNameInput.value.trim();
   if (fullName.length < 2) return;
 
-  activateWeddingMusic();
+  activateEventMusic();
 
   setButtonLoading(guestSubmitButton, true, "Entrando…");
   try {
-    state.guest = await weddingApi.enterGuest(fullName);
-    localStorage.setItem("wedding_guest", JSON.stringify(state.guest));
+    state.guest = await eventApi.enterGuest(fullName);
+    localStorage.setItem("event_guest", JSON.stringify(state.guest));
     showGuestResponse();
   } catch (error) {
     console.error(error);
@@ -318,7 +321,7 @@ function renderGifts() {
 async function loadGifts({ quiet = false } = {}) {
   if (!quiet) $("#gifts-loading").classList.remove("hidden");
   try {
-    state.gifts = await weddingApi.listGifts();
+    state.gifts = await eventApi.listGifts();
     renderGifts();
   } catch (error) {
     console.error(error);
@@ -344,7 +347,7 @@ function openGiftConfirmation(gift) {
 }
 
 function whatsappUrl(guestFirstName, giftName) {
-  const number = WEDDING_CONFIG.brideWhatsappNumber.replace(/\D/g, "");
+  const number = EVENT_CONFIG.brideWhatsappNumber.replace(/\D/g, "");
   const message = `${guestFirstName} escolheu te dar o presente “${giftName}”.`;
   return number ? `https://wa.me/${number}?text=${encodeURIComponent(message)}` : "";
 }
@@ -355,7 +358,7 @@ async function confirmGiftChoice() {
   setButtonLoading(button, true, "Reservando…");
 
   try {
-    const result = await weddingApi.chooseGift(state.selectedGift.id, state.guest.id);
+    const result = await eventApi.chooseGift(state.selectedGift.id, state.guest.id);
     if (!result.success) {
       await loadGifts({ quiet: true });
       closeModal(giftConfirmModal);
@@ -377,16 +380,16 @@ async function confirmGiftChoice() {
     }
 
     try {
-      const notification = await weddingApi.notifyBride(state.selectedGift.id, state.guest.id);
+      const notification = await eventApi.notifyBride(state.selectedGift.id, state.guest.id);
 
       if (notification.automatic && notification.sent) {
         manualWhatsappButton.classList.add("hidden");
-        showToast("Presente reservado e a noiva foi avisada automaticamente!");
+        showToast("Presente reservado e Tânia foi avisada automaticamente!");
       } else {
         throw new Error("A função não confirmou o envio da mensagem.");
       }
     } catch (notifyError) {
-      console.error("Falha ao notificar a noiva:", notifyError);
+      console.error("Falha ao enviar a notificação:", notifyError);
       const fallbackUrl = whatsappUrl(state.guest.firstName, chosenGiftName);
 
       if (fallbackUrl) {
@@ -412,7 +415,7 @@ async function confirmGiftChoice() {
 }
 
 function updateCountdown() {
-  const target = new Date(WEDDING_CONFIG.dateISO).getTime();
+  const target = new Date(EVENT_CONFIG.dateISO).getTime();
   const diff = Math.max(0, target - Date.now());
   const days = Math.floor(diff / 86400000);
   const hours = Math.floor((diff / 3600000) % 24);
@@ -426,10 +429,10 @@ function updateCountdown() {
 
 function restoreGuest() {
   try {
-    const saved = localStorage.getItem("wedding_guest");
+    const saved = localStorage.getItem("event_guest");
     if (saved) state.guest = JSON.parse(saved);
   } catch {
-    localStorage.removeItem("wedding_guest");
+    localStorage.removeItem("event_guest");
   }
 }
 
@@ -460,15 +463,15 @@ function bindEvents() {
 }
 
 async function init() {
-  fillWeddingContent();
+  fillEventContent();
   loadYouTubePlayer();
   restoreGuest();
   bindEvents();
   updateCountdown();
   setInterval(updateCountdown, 1000);
-  $("#demo-mode-banner").classList.toggle("hidden", weddingApi.mode !== "demo");
+  $("#demo-mode-banner").classList.toggle("hidden", eventApi.mode !== "demo");
   await loadGifts();
-  setInterval(() => loadGifts({ quiet: true }), WEDDING_CONFIG.refreshGiftsEveryMs);
+  setInterval(() => loadGifts({ quiet: true }), EVENT_CONFIG.refreshGiftsEveryMs);
   openRsvp();
 }
 

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1350" viewBox="0 0 900 1350" role="img" aria-labelledby="title desc">
+  <title id="title">Convite do Noivado e Chá de Bênção de Tânia Maria e Eliclécio Batista</title>
+  <desc id="desc">Convite floral em tons creme, rosa, verde e dourado.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffdf8"/>
+      <stop offset="0.55" stop-color="#fbf1e4"/>
+      <stop offset="1" stop-color="#f7e8de"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8d631e"/>
+      <stop offset="0.5" stop-color="#e6c67d"/>
+      <stop offset="1" stop-color="#9a7029"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#6d4b21" flood-opacity=".18"/>
+    </filter>
+    <radialGradient id="rose" cx="42%" cy="38%" r="62%">
+      <stop offset="0" stop-color="#fff2ee"/>
+      <stop offset=".55" stop-color="#edc8c2"/>
+      <stop offset="1" stop-color="#d9a39d"/>
+    </radialGradient>
+  </defs>
+  <rect width="900" height="1350" fill="url(#paper)"/>
+  <path d="M38 85 Q38 38 85 38 H815 Q862 38 862 85 V1265 Q862 1312 815 1312 H85 Q38 1312 38 1265Z" fill="none" stroke="url(#gold)" stroke-width="3"/>
+  <path d="M52 98 Q52 52 98 52 H802 Q848 52 848 98 V1252 Q848 1298 802 1298 H98 Q52 1298 52 1252Z" fill="none" stroke="#cfab61" stroke-width="1" opacity=".7"/>
+
+  <!-- floral corners -->
+  <g>
+    <g transform="translate(18 20)">
+      <circle cx="88" cy="85" r="62" fill="url(#rose)"/>
+      <circle cx="88" cy="85" r="42" fill="none" stroke="#fff4ef" stroke-width="12" opacity=".65"/>
+      <circle cx="88" cy="85" r="21" fill="#e9b9b1"/>
+      <path d="M122 132 C190 100 221 54 258 18" fill="none" stroke="#52613a" stroke-width="9" stroke-linecap="round"/>
+      <g fill="#6e7a4a">
+        <ellipse cx="150" cy="111" rx="20" ry="46" transform="rotate(57 150 111)"/>
+        <ellipse cx="185" cy="79" rx="19" ry="44" transform="rotate(48 185 79)"/>
+        <ellipse cx="221" cy="43" rx="17" ry="40" transform="rotate(40 221 43)"/>
+        <ellipse cx="128" cy="151" rx="18" ry="41" transform="rotate(104 128 151)"/>
+      </g>
+    </g>
+    <g transform="translate(882 1330) rotate(180)">
+      <circle cx="88" cy="85" r="62" fill="url(#rose)"/>
+      <circle cx="88" cy="85" r="42" fill="none" stroke="#fff4ef" stroke-width="12" opacity=".65"/>
+      <circle cx="88" cy="85" r="21" fill="#e9b9b1"/>
+      <path d="M122 132 C190 100 221 54 258 18" fill="none" stroke="#52613a" stroke-width="9" stroke-linecap="round"/>
+      <g fill="#6e7a4a">
+        <ellipse cx="150" cy="111" rx="20" ry="46" transform="rotate(57 150 111)"/>
+        <ellipse cx="185" cy="79" rx="19" ry="44" transform="rotate(48 185 79)"/>
+        <ellipse cx="221" cy="43" rx="17" ry="40" transform="rotate(40 221 43)"/>
+        <ellipse cx="128" cy="151" rx="18" ry="41" transform="rotate(104 128 151)"/>
+      </g>
+    </g>
+  </g>
+
+  <circle cx="450" cy="160" r="88" fill="#fffaf3" stroke="url(#gold)" stroke-width="3"/>
+  <text x="450" y="178" text-anchor="middle" font-family="Georgia, serif" font-size="58" font-style="italic" fill="url(#gold)">T &amp; E</text>
+
+  <text x="450" y="285" text-anchor="middle" font-family="Georgia, serif" font-size="25" letter-spacing="2" fill="#465128">COM A BÊNÇÃO DE DEUS</text>
+  <text x="450" y="322" text-anchor="middle" font-family="Georgia, serif" font-size="25" letter-spacing="2" fill="#465128">E A ALEGRIA DE NOSSAS FAMÍLIAS</text>
+  <line x1="270" y1="356" x2="630" y2="356" stroke="url(#gold)" stroke-width="2"/>
+  <text x="450" y="413" text-anchor="middle" font-family="Georgia, serif" font-size="24" letter-spacing="1.6" fill="#465128">CONVIDAMOS VOCÊ PARA CELEBRAR</text>
+  <text x="450" y="456" text-anchor="middle" font-family="Georgia, serif" font-size="31" font-weight="bold" letter-spacing="2" fill="#5e6b38">NOSSO NOIVADO E CHÁ DE BÊNÇÃO</text>
+
+  <text x="450" y="565" text-anchor="middle" font-family="'Brush Script MT', 'Segoe Script', cursive" font-size="86" fill="#b98a32">Tânia Maria</text>
+  <text x="450" y="635" text-anchor="middle" font-family="Georgia, serif" font-size="62" fill="#b98a32">&amp;</text>
+  <text x="450" y="735" text-anchor="middle" font-family="'Brush Script MT', 'Segoe Script', cursive" font-size="82" fill="#b98a32">Eliclécio Batista</text>
+
+  <text x="450" y="815" text-anchor="middle" font-family="Georgia, serif" font-size="25" fill="#4f5a47">Com muita alegria, convidamos você para celebrar</text>
+  <text x="450" y="850" text-anchor="middle" font-family="Georgia, serif" font-size="25" fill="#4f5a47">conosco este momento tão especial.</text>
+  <text x="450" y="885" text-anchor="middle" font-family="Georgia, serif" font-size="25" fill="#4f5a47">Sua presença será um presente para nós.</text>
+
+  <rect x="165" y="930" width="570" height="108" rx="18" fill="#f7dedc" fill-opacity=".55" stroke="url(#gold)" stroke-width="2"/>
+  <text x="450" y="975" text-anchor="middle" font-family="Georgia, serif" font-size="22" letter-spacing="1" fill="#5d543e">SE DESEJAR NOS PRESENTEAR,</text>
+  <text x="450" y="1010" text-anchor="middle" font-family="Georgia, serif" font-size="22" letter-spacing="1" fill="#5d543e">CONHEÇA A NOSSA LISTA DE PRESENTES</text>
+
+  <g font-family="Georgia, serif" fill="#455034">
+    <text x="245" y="1095" font-size="24" font-weight="bold">DATA:</text>
+    <text x="410" y="1095" font-size="27">15/09/2026</text>
+    <line x1="225" y1="1112" x2="675" y2="1112" stroke="#d2b36d"/>
+    <text x="245" y="1150" font-size="24" font-weight="bold">HORÁRIO:</text>
+    <text x="410" y="1150" font-size="27">20:00 horas</text>
+    <line x1="225" y1="1168" x2="675" y2="1168" stroke="#d2b36d"/>
+    <text x="245" y="1207" font-size="24" font-weight="bold">LOCAL:</text>
+    <text x="410" y="1207" font-size="24">Confira os detalhes no site</text>
+  </g>
+
+  <text x="450" y="1260" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-style="italic" fill="#465128">“Se o Senhor não edificar a casa, em vão trabalham os que a edificam.”</text>
+  <text x="450" y="1292" text-anchor="middle" font-family="Georgia, serif" font-size="21" fill="#b98a32">Salmos 127:1</text>
+</svg>

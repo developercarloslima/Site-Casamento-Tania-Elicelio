@@ -6,16 +6,51 @@
     <meta name="theme-color" content="#fbf4e9" />
     <meta
       name="description"
-      content="Convite de casamento de Tânia Maria e Eliclécio Batista"
+      content="Convite do Noivado e Chá de Bênção de Tânia Maria e Eliclécio Batista"
     />
-    <title>Tânia Maria & Eliclécio Batista | Casamento</title>
+    <title>Tânia Maria & Eliclécio Batista | Noivado e Chá de Bênção</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=20260723-mini-player-v2" />
+    <style id="youtube-mini-player-critical">
+      .youtube-mini-player {
+        position: fixed !important;
+        right: 18px !important;
+        bottom: 18px !important;
+        width: 300px !important;
+        max-width: calc(100vw - 36px) !important;
+        height: 169px !important;
+        z-index: 180 !important;
+        overflow: hidden !important;
+      }
+
+      .youtube-mini-player > div,
+      .youtube-mini-player iframe {
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      @media (max-width: 640px) {
+        .youtube-mini-player {
+          right: 10px !important;
+          bottom: calc(10px + env(safe-area-inset-bottom, 0px)) !important;
+          width: 168px !important;
+          max-width: calc(100vw - 20px) !important;
+          height: 95px !important;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .youtube-mini-player {
+          width: 156px !important;
+          height: 88px !important;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="page-noise" aria-hidden="true"></div>
@@ -54,7 +89,7 @@
         </div>
         <p class="eyebrow">Com a bênção de Deus e a alegria de nossas famílias</p>
         <div class="divider"><span>❦</span></div>
-        <p class="invitation-line">Convidamos você para celebrar o nosso casamento</p>
+        <p class="invitation-line" data-event-invitation>Convidamos você para celebrar o nosso Noivado e Chá de Bênção</p>
         <h1>
           <span data-bride-full>Tânia Maria</span>
           <b>&</b>
@@ -114,14 +149,14 @@
               <div class="detail-icon" aria-hidden="true">⌖</div>
               <h3>Local</h3>
               <p><strong data-venue-name>Nome do espaço da cerimônia</strong></p>
-              <p data-venue-address>Endereço completo do casamento</p>
+              <p data-venue-address>Endereço completo da celebração</p>
               <a class="text-link" data-maps-link href="https://maps.google.com/" target="_blank" rel="noreferrer">
                 Abrir no mapa
               </a>
             </article>
           </div>
 
-          <div class="countdown-card" aria-label="Contagem regressiva para o casamento">
+          <div class="countdown-card" aria-label="Contagem regressiva para o Noivado e Chá de Bênção">
             <p>Faltam</p>
             <div class="countdown" id="countdown">
               <div><strong id="days">000</strong><span>dias</span></div>
@@ -167,8 +202,8 @@
             <button class="button button-outline" id="open-invitation-button" type="button">Ver convite</button>
           </div>
           <img
-            src="./assets/convites/convite-modelo-2.png"
-            alt="Convite floral de casamento de Tânia Maria e Eliclécio Batista"
+            src="./assets/convites/convite-noivado-cha-de-bencao.svg"
+            alt="Convite floral do Noivado e Chá de Bênção de Tânia Maria e Eliclécio Batista"
             loading="lazy"
           />
         </div>
@@ -183,15 +218,15 @@
       </div>
     </footer>
 
-    <aside class="youtube-mini-player" aria-label="Playlist de músicas do casamento">
+    <aside class="youtube-mini-player" data-player-version="mobile-v2" aria-label="Playlist do Noivado e Chá de Bênção">
       <div
         id="youtube-player"
         data-playlist-id="PLCggmkGw79n8V3eZuRpuzETFljnj5-qNw"
-        aria-label="Player da playlist de músicas do casamento">
+        aria-label="Player da playlist do Noivado e Chá de Bênção">
       </div>
       <noscript>
         <a href="https://www.youtube.com/playlist?list=PLCggmkGw79n8V3eZuRpuzETFljnj5-qNw" target="_blank" rel="noopener noreferrer">
-          Abrir playlist do casamento no YouTube
+          Abrir playlist do Noivado e Chá de Bênção no YouTube
         </a>
       </noscript>
     </aside>
@@ -254,11 +289,11 @@
     <div class="modal-backdrop hidden" id="invitation-modal" role="dialog" aria-modal="true" aria-labelledby="invitation-title">
       <div class="modal-card invitation-modal-card">
         <button class="modal-close" id="invitation-close" type="button" aria-label="Fechar">×</button>
-        <h2 id="invitation-title" class="sr-only">Convite de casamento</h2>
-        <img src="./assets/convites/convite-modelo-2.png" alt="Convite de casamento" />
+        <h2 id="invitation-title" class="sr-only">Convite do Noivado e Chá de Bênção</h2>
+        <img src="./assets/convites/convite-noivado-cha-de-bencao.svg" alt="Convite do Noivado e Chá de Bênção" />
       </div>
     </div>
 
-    <script type="module" src="./app.js"></script>
+    <script type="module" src="./app.js?v=20260723-mini-player-v2"></script>
   </body>
 </html>

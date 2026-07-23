@@ -1,7 +1,7 @@
-import { WEDDING_CONFIG } from "./config.js";
+import { EVENT_CONFIG } from "./config.js?v=20260723-mini-player-v2";
 
-const LOCAL_GUESTS_KEY = "wedding_demo_guests_v1";
-const LOCAL_GIFTS_KEY = "wedding_demo_gifts_v1";
+const LOCAL_GUESTS_KEY = "engagement_blessing_guests_v1";
+const LOCAL_GIFTS_KEY = "engagement_blessing_gifts_v1";
 
 const sampleGifts = [
   {
@@ -86,7 +86,7 @@ function writeJSON(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
 
-class LocalWeddingApi {
+class LocalEventApi {
   constructor() {
     this.mode = "demo";
     if (!localStorage.getItem(LOCAL_GIFTS_KEY)) {
@@ -151,7 +151,7 @@ class LocalWeddingApi {
   }
 }
 
-class SupabaseWeddingApi {
+class SupabaseEventApi {
   constructor(url, key, createClient) {
     this.mode = "supabase";
     this.client = createClient(url, key);
@@ -238,17 +238,17 @@ class SupabaseWeddingApi {
   }
 }
 
-const { url, publishableKey } = WEDDING_CONFIG.supabase;
+const { url, publishableKey } = EVENT_CONFIG.supabase;
 const hasSupabase = Boolean(url?.trim() && publishableKey?.trim());
 
-let weddingApi;
+let eventApi;
 if (hasSupabase) {
   const { createClient } = await import(
     "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm"
   );
-  weddingApi = new SupabaseWeddingApi(url.trim(), publishableKey.trim(), createClient);
+  eventApi = new SupabaseEventApi(url.trim(), publishableKey.trim(), createClient);
 } else {
-  weddingApi = new LocalWeddingApi();
+  eventApi = new LocalEventApi();
 }
 
-export { weddingApi };
+export { eventApi };
