@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="675" viewBox="0 0 900 675" role="img" aria-label="Jogo de Panelas">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffaf1"/><stop offset="1" stop-color="#f1ddd6"/></linearGradient>
+  <filter id="s" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#6f5737" flood-opacity=".18"/></filter>
+</defs>
+<rect width="900" height="675" rx="44" fill="url(#bg)"/>
+<path d="M45 80C160 16 265 35 344 95C428 159 525 137 620 70C690 21 789 31 855 80" fill="none" stroke="#c5a05a" stroke-width="3" opacity=".55"/>
+<path d="M45 595C160 659 265 640 344 580C428 516 525 538 620 605C690 654 789 644 855 595" fill="none" stroke="#c5a05a" stroke-width="3" opacity=".55"/>
+<circle cx="450" cy="305" r="160" fill="#fffdf8" stroke="#c5a05a" stroke-width="4" filter="url(#s)"/>
+<text x="450" y="340" text-anchor="middle" font-size="130" font-family="Georgia, serif" fill="#59663a">◉</text>
+<text x="450" y="545" text-anchor="middle" font-size="42" font-family="Georgia, serif" font-weight="700" fill="#465128">Jogo de Panelas</text>
+<text x="450" y="590" text-anchor="middle" font-size="22" font-family="Arial, sans-serif" letter-spacing="4" fill="#b98a32">T &amp; E</text>
+</svg>

@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fbf4e9" />
+    <meta
+      name="description"
+      content="Convite de casamento de Tânia Maria e Eliclécio Batista"
+    />
+    <title>Tânia Maria & Eliclécio Batista | Casamento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-noise" aria-hidden="true"></div>
+
+    <header class="hero" id="inicio">
+      <div class="floral floral-top-left" aria-hidden="true">
+        <span class="flower flower-lg"></span>
+        <span class="flower flower-sm"></span>
+        <span class="leaf leaf-a"></span>
+        <span class="leaf leaf-b"></span>
+        <span class="leaf leaf-c"></span>
+      </div>
+      <div class="floral floral-bottom-right" aria-hidden="true">
+        <span class="flower flower-lg"></span>
+        <span class="flower flower-sm"></span>
+        <span class="leaf leaf-a"></span>
+        <span class="leaf leaf-b"></span>
+        <span class="leaf leaf-c"></span>
+      </div>
+
+      <nav class="nav container" aria-label="Navegação principal">
+        <a class="brand" href="#inicio" data-monogram>T & E</a>
+        <div class="nav-links">
+          <a href="#historia">Nosso convite</a>
+          <a href="#detalhes">Detalhes</a>
+          <a href="#presentes">Presentes</a>
+        </div>
+        <button class="button button-small button-outline" id="open-rsvp-button" type="button">
+          Confirmar presença
+        </button>
+      </nav>
+
+      <div class="hero-content container">
+        <div class="monogram" aria-label="Monograma do casal">
+          <span data-monogram>T & E</span>
+        </div>
+        <p class="eyebrow">Com a bênção de Deus e a alegria de nossas famílias</p>
+        <div class="divider"><span>❦</span></div>
+        <p class="invitation-line">Convidamos você para celebrar o nosso casamento</p>
+        <h1>
+          <span data-bride-full>Tânia Maria</span>
+          <b>&</b>
+          <span data-groom-full>Eliclécio Batista</span>
+        </h1>
+        <p class="hero-copy">
+          Com muita alegria, convidamos você para celebrar conosco este momento tão especial.
+          Em breve iniciaremos uma nova etapa de nossas vidas, e sua presença será um presente para nós.
+        </p>
+        <div class="hero-actions">
+          <button class="button" id="hero-rsvp-button" type="button">Confirmar minha presença</button>
+          <a class="button button-outline" href="#presentes">Ver lista de presentes</a>
+        </div>
+        <div class="date-pill">
+          <span>♥</span>
+          <strong data-date-label>15 de setembro de 2026</strong>
+          <span>♥</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section intro-section" id="historia">
+        <div class="container narrow center">
+          <p class="section-kicker">O início de uma nova etapa</p>
+          <h2>Um dia para guardar no coração</h2>
+          <p>
+            Acreditamos que Deus escreve histórias lindas e que o amor floresce quando é cultivado com fé,
+            respeito e companheirismo. Será uma alegria ter você ao nosso lado neste capítulo tão especial.
+          </p>
+          <blockquote>
+            <span data-verse-text>“Se o Senhor não edificar a casa, em vão trabalham os que a edificam.”</span>
+            <cite data-verse-reference>Salmos 127:1</cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="section details-section" id="detalhes">
+        <div class="container">
+          <div class="section-heading center">
+            <p class="section-kicker">Reserve esta data</p>
+            <h2>Detalhes da celebração</h2>
+          </div>
+
+          <div class="details-grid">
+            <article class="detail-card">
+              <div class="detail-icon" aria-hidden="true">▣</div>
+              <h3>Data</h3>
+              <p data-date-label>15 de setembro de 2026</p>
+            </article>
+            <article class="detail-card">
+              <div class="detail-icon" aria-hidden="true">◷</div>
+              <h3>Horário</h3>
+              <p data-time-label>20:00 horas</p>
+            </article>
+            <article class="detail-card">
+              <div class="detail-icon" aria-hidden="true">⌖</div>
+              <h3>Local</h3>
+              <p><strong data-venue-name>Nome do espaço da cerimônia</strong></p>
+              <p data-venue-address>Endereço completo do casamento</p>
+              <a class="text-link" data-maps-link href="https://maps.google.com/" target="_blank" rel="noreferrer">
+                Abrir no mapa
+              </a>
+            </article>
+          </div>
+
+          <div class="countdown-card" aria-label="Contagem regressiva para o casamento">
+            <p>Faltam</p>
+            <div class="countdown" id="countdown">
+              <div><strong id="days">000</strong><span>dias</span></div>
+              <div><strong id="hours">00</strong><span>horas</span></div>
+              <div><strong id="minutes">00</strong><span>minutos</span></div>
+              <div><strong id="seconds">00</strong><span>segundos</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section gifts-section" id="presentes">
+        <div class="container">
+          <div class="section-heading center narrow">
+            <p class="section-kicker">Nosso novo lar</p>
+            <h2>Lista de presentes</h2>
+            <p>
+              Sua presença é o nosso maior presente. Caso deseje nos presentear, escolha um item abaixo.
+              Assim que um presente for reservado, ele ficará indisponível para os demais convidados.
+            </p>
+          </div>
+
+          <div class="mode-banner hidden" id="demo-mode-banner" role="status">
+            Modo de demonstração: as escolhas estão salvas somente neste navegador. Configure o Supabase para
+            bloquear os presentes globalmente e enviar a notificação automática.
+          </div>
+
+          <div class="gifts-grid" id="gifts-grid" aria-live="polite"></div>
+          <div class="loading-state" id="gifts-loading">Carregando presentes…</div>
+          <div class="empty-state hidden" id="gifts-empty">Nenhum presente cadastrado.</div>
+        </div>
+      </section>
+
+      <section class="section invitation-image-section">
+        <div class="container invitation-layout">
+          <div>
+            <p class="section-kicker">Convite digital</p>
+            <h2>Uma lembrança do nosso convite</h2>
+            <p>
+              O site foi inspirado no estilo floral em tons de rosa, verde e dourado do convite. Os dados do
+              local podem ser atualizados no arquivo <code>config.js</code>.
+            </p>
+            <button class="button button-outline" id="open-invitation-button" type="button">Ver convite</button>
+          </div>
+          <img
+            src="./assets/convites/convite-modelo-2.png"
+            alt="Convite floral de casamento de Tânia Maria e Eliclécio Batista"
+            loading="lazy"
+          />
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container center">
+        <div class="footer-monogram" data-monogram>T & E</div>
+        <p>Esperamos você para celebrar conosco.</p>
+        <small>Feito com amor para <span data-bride-first>Tânia</span> & <span data-groom-first>Eliclécio</span>.</small>
+      </div>
+    </footer>
+
+    <aside class="youtube-mini-player" aria-label="Playlist de músicas do casamento">
+      <div
+        id="youtube-player"
+        data-playlist-id="PLCggmkGw79n8V3eZuRpuzETFljnj5-qNw"
+        aria-label="Player da playlist de músicas do casamento">
+      </div>
+      <noscript>
+        <a href="https://www.youtube.com/playlist?list=PLCggmkGw79n8V3eZuRpuzETFljnj5-qNw" target="_blank" rel="noopener noreferrer">
+          Abrir playlist do casamento no YouTube
+        </a>
+      </noscript>
+    </aside>
+
+    <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+    <div class="modal-backdrop" id="entry-modal" role="dialog" aria-modal="true" aria-labelledby="entry-title">
+      <div class="modal-card entry-card">
+        <button class="modal-close hidden" id="entry-close" type="button" aria-label="Fechar">×</button>
+        <div class="modal-monogram" data-monogram>T & E</div>
+        <div id="entry-form-view">
+          <p class="section-kicker">Seja bem-vindo(a)</p>
+          <h2 id="entry-title">Como podemos chamar você?</h2>
+          <p>Digite seu nome para personalizarmos sua experiência.</p>
+          <form id="guest-name-form">
+            <label for="guest-name">Seu nome completo</label>
+            <input
+              id="guest-name"
+              name="guestName"
+              type="text"
+              autocomplete="name"
+              minlength="2"
+              maxlength="120"
+              placeholder="Ex.: Maria da Silva"
+              required
+            />
+            <button class="button full-width" id="guest-submit" type="submit">Entrar no site</button>
+          </form>
+        </div>
+
+        <div class="hidden" id="entry-response-view">
+          <p class="section-kicker">Que alegria ter você aqui</p>
+          <h2 id="guest-greeting"></h2>
+          <p id="guest-message"></p>
+          <div class="modal-actions" id="guest-actions"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop hidden" id="gift-confirm-modal" role="dialog" aria-modal="true" aria-labelledby="gift-confirm-title">
+      <div class="modal-card">
+        <button class="modal-close" id="gift-confirm-close" type="button" aria-label="Fechar">×</button>
+        <p class="section-kicker">Escolha de presente</p>
+        <h2 id="gift-confirm-title">Tem certeza?</h2>
+        <p id="gift-confirm-message"></p>
+        <div class="modal-actions" id="gift-confirm-actions">
+          <button class="button" id="confirm-gift-button" type="button">Sim, tenho</button>
+          <button class="button button-outline" id="cancel-gift-button" type="button">Deixa eu pensar melhor</button>
+        </div>
+        <div class="hidden" id="gift-thanks-view">
+          <div class="success-icon">✓</div>
+          <h2>Muito obrigado pelo presente!</h2>
+          <p id="gift-thanks-message"></p>
+          <a class="button full-width" id="gift-purchase-link" href="#" target="_blank" rel="noreferrer">Acessar link para comprar</a>
+          <button class="button button-outline full-width hidden" id="manual-whatsapp-button" type="button">Avisar no WhatsApp</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop hidden" id="invitation-modal" role="dialog" aria-modal="true" aria-labelledby="invitation-title">
+      <div class="modal-card invitation-modal-card">
+        <button class="modal-close" id="invitation-close" type="button" aria-label="Fechar">×</button>
+        <h2 id="invitation-title" class="sr-only">Convite de casamento</h2>
+        <img src="./assets/convites/convite-modelo-2.png" alt="Convite de casamento" />
+      </div>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
